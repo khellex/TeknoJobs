@@ -1,0 +1,6 @@
+@TeknoJobs_HostAddress = http://localhost:5198
+
+GET {{TeknoJobs_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
