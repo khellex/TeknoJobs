@@ -25,7 +25,19 @@ namespace TeknoJobs.Application.Object_Mapper
 
             //mapping for LocationsRequestDto --> Locations
             CreateMap<LocationsRequestDto, Locations>();
-            
+
+
+            //mapping for Jobs --> JobDetailsResponseDto
+            CreateMap<Jobs, JobDetailsResponseDto>();
+            CreateMap<Locations, LocationDto>();
+            CreateMap<Departments, DepartmentDto>();
+
+            //mapping for JobsRequestDto --> Jobs
+            CreateMap<JobsRequestDto, Jobs>()
+                .ForMember(dest => dest.Locations, opt => opt.Ignore())
+                .ForMember(dest => dest.Department, opt => opt.Ignore())
+                .ForMember(dest => dest.PostedDate, opt => opt.Ignore())
+                .ForMember(dest => dest.Code, opt => opt.Ignore());
         }
     }
 }
