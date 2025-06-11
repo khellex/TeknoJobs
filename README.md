@@ -117,6 +117,10 @@ Bearer <your-token-here>
 
 ---
 
+### 6. Please use the Migration.sql file included in this repo if you face any issues with running the migration script from Package Manager console
+
+---
+
 ## ✅ Notes
 
 - Make sure SQL Server is running before applying migrations.
