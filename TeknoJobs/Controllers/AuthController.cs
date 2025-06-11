@@ -6,7 +6,8 @@ using TeknoJobs.Application.Interfaces;
 namespace TeknoJobs.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AuthController : ControllerBase
     {
         private readonly ITokenService _tokenService;
@@ -21,9 +22,6 @@ namespace TeknoJobs.Controllers
         /// <param name="request">The login request containing username and password.</param>
         /// <returns>Returns a token for successful login or Unauthorized for failed login.</returns>
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(object))]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Login([FromBody] LoginRequestDto request)
         {
             if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))

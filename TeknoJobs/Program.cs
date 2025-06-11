@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using TeknoJobs.Application.Interfaces;
+using TeknoJobs.Application.Object_Mapper;
 using TeknoJobs.Domain.Interfaces;
 using TeknoJobs.Infrastructure.Auth;
 using TeknoJobs.Infrastructure.Data;
@@ -17,7 +19,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// Register Swagger services to generate API documentation with versioning support
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new() { Title = "Tekno_Jobs API v1", Version = "v1" });
+
+    options.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Enter the bearer authorization string as following: `Bearer Generated-JWT`",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = JwtBearerDefaults.AuthenticationScheme,
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference=new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id=JwtBearerDefaults.AuthenticationScheme,
+                }
+            }, new string[]{}
+        }
+    });
+});
 
 // Configure Entity Framework Core with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -47,6 +76,9 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Register the AutoMapper profile for mapping between DTOs and entities
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 builder.Services.AddAuthorization();
 
 // Register application services
@@ -59,7 +91,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+    });
 }
 
 app.UseHttpsRedirection();

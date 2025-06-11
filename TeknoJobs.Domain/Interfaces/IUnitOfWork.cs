@@ -8,6 +8,7 @@ namespace TeknoJobs.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
+        IDepartmentsRepository Departments { get; }
         Task SaveChangesAsync();
     }
 }

@@ -11,11 +11,14 @@ namespace TeknoJobs.Infrastructure.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _db;
+        public IDepartmentsRepository Departments { get; private set; }
 
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
+            Departments = new DepartmentsRepository(_db);
         }
+
         public async Task SaveChangesAsync()
         {
            await _db.SaveChangesAsync();
