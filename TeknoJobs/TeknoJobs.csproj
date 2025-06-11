@@ -20,8 +20,4 @@
     <ProjectReference Include="..\TeknoJobs.Infrastructure\TeknoJobs.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Object Mapper\" />
-  </ItemGroup>
-
 </Project>

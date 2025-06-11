@@ -15,5 +15,7 @@ namespace TeknoJobs.Infrastructure.Data
         : base(options) { }
 
         public DbSet<Departments> Departments { get; set; }
+        public DbSet<Locations> Locations { get; set; }
+        public DbSet<Jobs> Jobs { get; set; }
     }
 }

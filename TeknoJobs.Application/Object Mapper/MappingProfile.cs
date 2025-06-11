@@ -13,9 +13,19 @@ namespace TeknoJobs.Application.Object_Mapper
     {
         public MappingProfile()
         {
+            //mapping for Department --> DepartmentsResponseDto
             CreateMap<Departments, DepartmentsResponseDto>();
+
+            //mapping for DepartmentsRequestDto --> Departments
             CreateMap<DepartmentsRequestDto, Departments>();
-            // Add more mappings here
+
+
+            //mapping for Locations --> LocationsResponseDto
+            CreateMap<Locations, LocationsResponseDto>();
+
+            //mapping for LocationsRequestDto --> Locations
+            CreateMap<LocationsRequestDto, Locations>();
+            
         }
     }
 }
