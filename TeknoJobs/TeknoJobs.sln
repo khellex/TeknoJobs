@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknoJobs.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknoJobs.Domain", "..\TeknoJobs.Domain\TeknoJobs.Domain.csproj", "{C8DF0143-97B0-402F-86D7-51E6C1CBF382}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeknoJobs.Persistence", "..\TeknoJobs.Persistence\TeknoJobs.Persistence.csproj", "{DA8B7367-E419-9E02-416C-5E61838E0C15}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{C8DF0143-97B0-402F-86D7-51E6C1CBF382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8DF0143-97B0-402F-86D7-51E6C1CBF382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8DF0143-97B0-402F-86D7-51E6C1CBF382}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA8B7367-E419-9E02-416C-5E61838E0C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA8B7367-E419-9E02-416C-5E61838E0C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA8B7367-E419-9E02-416C-5E61838E0C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA8B7367-E419-9E02-416C-5E61838E0C15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

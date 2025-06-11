@@ -18,7 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TeknoJobs.Application\TeknoJobs.Application.csproj" />
     <ProjectReference Include="..\TeknoJobs.Infrastructure\TeknoJobs.Infrastructure.csproj" />
-    <ProjectReference Include="..\TeknoJobs.Persistence\TeknoJobs.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

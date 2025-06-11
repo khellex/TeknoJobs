@@ -4,8 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TeknoJobs.Application.Interfaces;
 using TeknoJobs.Infrastructure.Auth;
+using TeknoJobs.Infrastructure.Data;
 using TeknoJobs.Models;
-using TeknoJobs.Persistence.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
