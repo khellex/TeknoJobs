@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TeknoJobs.Domain.Entities;
 
 namespace TeknoJobs.Infrastructure.Data
 {
-    //setting up th applicationDbContext class that inherits from DbContext to utilize Entity Framework Core for database operations      
+    /// <summary>
+    /// Represents the application's database context, providing access to the underlying database using Entity
+    /// Framework Core.
+    /// </summary>
+    /// <remarks>This class is used to configure and interact with the application's database. It inherits
+    /// from <see cref="DbContext"/> and provides <see cref="DbSet{TEntity}"/> properties for querying and saving
+    /// instances of the specified entity types.</remarks>
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

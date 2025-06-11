@@ -5,6 +5,12 @@ using TeknoJobs.Infrastructure.Data;
 
 namespace TeknoJobs.Infrastructure.Repository
 {
+    /// <summary>
+    /// Provides methods for managing and retrieving job-related data from the database.
+    /// </summary>
+    /// <remarks>This repository is responsible for handling operations specific to the <see cref="Jobs"/>
+    /// entity,  including generating unique job codes and updating job records. It extends the base repository 
+    /// functionality and implements the <see cref="IJobsRepository"/> interface.</remarks>
     public class JobsRepository : Repository<Jobs>, IJobsRepository
     {
         private readonly ApplicationDbContext _db;

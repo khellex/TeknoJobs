@@ -8,7 +8,6 @@ namespace TeknoJobs.Application.DTOs
 {
     public class DepartmentsRequestDto
     {
-        //public int Id { get; set; }
         public required string Title { get; set; }
     }
 }

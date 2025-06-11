@@ -20,4 +20,9 @@
     <ProjectReference Include="..\TeknoJobs.Infrastructure\TeknoJobs.Infrastructure.csproj" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn><!-- suppress missing doc warning -->
+  </PropertyGroup>
+
 </Project>

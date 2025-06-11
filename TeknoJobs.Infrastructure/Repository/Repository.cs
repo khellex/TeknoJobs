@@ -11,6 +11,13 @@ using TeknoJobs.Infrastructure.Data;
 
 namespace TeknoJobs.Infrastructure.Repository
 {
+    /// <summary>
+    /// Provides a generic repository implementation for managing entities in a database.
+    /// </summary>
+    /// <remarks>This class is designed to work with Entity Framework Core and provides common data access
+    /// methods such as adding, querying, and retrieving entities. It supports filtering, tracking, and including
+    /// related entities in queries.</remarks>
+    /// <typeparam name="T">The type of entity managed by the repository. Must be a reference type.</typeparam>
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
@@ -88,11 +95,6 @@ namespace TeknoJobs.Infrastructure.Repository
                 }
             }
             return await query.ToListAsync();
-        }
-
-        public void Remove(T entity)
-        {
-            _dbSet.Remove(entity);
         }
     }
 }

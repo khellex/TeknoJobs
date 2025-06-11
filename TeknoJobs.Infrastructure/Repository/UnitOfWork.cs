@@ -8,6 +8,12 @@ using TeknoJobs.Infrastructure.Data;
 
 namespace TeknoJobs.Infrastructure.Repository
 {
+    /// <summary>
+    /// Provides a centralized mechanism for managing repositories and saving changes to the database.
+    /// </summary>
+    /// <remarks>The <see cref="UnitOfWork"/> class encapsulates multiple repositories and ensures that
+    /// changes  made to the database are committed as a single unit. This class is typically used in scenarios  where
+    /// multiple related operations need to be performed within a single transaction.</remarks>
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _db;
