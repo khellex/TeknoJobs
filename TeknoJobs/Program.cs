@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TeknoJobs.Application.Interfaces;
+using TeknoJobs.Domain.Interfaces;
 using TeknoJobs.Infrastructure.Auth;
 using TeknoJobs.Infrastructure.Data;
+using TeknoJobs.Infrastructure.Repository;
 using TeknoJobs.Models;
 
 
@@ -21,6 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//fetching the JwtSettings from the configuration and registering it for dependency injection
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.Configure<JwtSettings>(jwtSettings);
 
@@ -48,6 +51,7 @@ builder.Services.AddAuthorization();
 
 // Register application services
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
